@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { logUserService } from "../api/logUserService";
 import { multyValidation } from "../utilities/validateInputs";
 import { useInputHandler } from "./general/useInputHandler";
+import { useAlert } from "./components/useAlert";
 
 export const useLogin = () => {
   const Email = useInputHandler({ type: "email", required: true });
@@ -11,12 +12,13 @@ export const useLogin = () => {
   const handleSubmit = async () => {
     const inputs = [Email, Password];
     const isValidated = multyValidation(inputs);
+    const { showAlert } = useAlert()
 
     if (!isValidated) return;
 
     const data = await logUserService(Email.text, Password.text);
 
-    if (!data) return console.log("Usuario o contaseña incorrectas");
+    if (!data) return showAlert("Usuario o contaseña incorrectas");
 
     sessionStorage.setItem("token", data.token);
     navigate("/home");

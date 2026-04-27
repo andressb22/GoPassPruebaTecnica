@@ -14,7 +14,7 @@ export const useSelectHandler = ({ type }: InputHandlerType) => {
   };
 
   const addItem = (option: optionType) => {
-    console.log(option);
+
     setData((prev) => {
       // Si ya está seleccionada, la quitamos; si no, la agregamos
       return prev.some((item) => item.id === option.id)

@@ -89,10 +89,10 @@ export const useProjectForm = () => {
       projectMembers: finalMembers
     };
 
-    console.log(projectData);
+    
 
     const project = await createProjectService(projectData);
-    console.log(project.data);
+    
     return project.data
   }
 

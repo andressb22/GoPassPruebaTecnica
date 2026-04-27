@@ -30,7 +30,7 @@ const CardProject = ({ item, deleteProject }: CardProjectProps) => {
 
     if (!confirmed) return;
 
-    console.log('logica de eliminar proyecto');
+    
     try {
       await deleteProjectService(item.pro_id);
       deleteProject(item.pro_id);

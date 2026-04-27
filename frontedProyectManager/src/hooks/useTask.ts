@@ -79,7 +79,7 @@ export const useTask = (pro_id: number) => {
                     tasks: newTasks,
                 };
             });
-            console.log("Estados de tareas obtenidos:", statesData);
+            
         }
 
 
@@ -96,7 +96,7 @@ export const useTask = (pro_id: number) => {
     }
 
     const updateKanban = (task: taskType) => {
-        console.log(task)
+        
         setTasks((prev) => {
             const newTasks = {
                 ...prev.tasks,

@@ -8,7 +8,7 @@ export const useProject = () => {
   useEffect(() => {
     const getProjects = async () => {
       const projectsData = await getProyectsService();
-      console.log("projectsData", projectsData);
+      
       setProjects(projectsData);
     };
 

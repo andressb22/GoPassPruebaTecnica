@@ -31,7 +31,7 @@ export const useTaskForm = ({ projectId, taskSelected, updateKanban }: useTaskFo
     useEffect(() => {
 
         if (taskSelected) {
-            console.log("entra")
+        
             Name.handleChange(taskSelected.tas_title)
             Description.handleChange(taskSelected.tas_description)
             State.changeItem({
