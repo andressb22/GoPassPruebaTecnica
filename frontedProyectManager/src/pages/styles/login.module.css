@@ -5,6 +5,10 @@
   cursor: pointer;
 }
 
+.title {
+  margin-bottom: 20px;
+}
+
 .card {
   max-width: 600px;
   border-radius: 14px;

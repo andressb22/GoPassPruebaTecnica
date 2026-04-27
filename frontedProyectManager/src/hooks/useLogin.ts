@@ -8,11 +8,12 @@ export const useLogin = () => {
   const Email = useInputHandler({ type: "email", required: true });
   const Password = useInputHandler({ type: "password", required: true });
   const navigate = useNavigate();
-
+  const { showAlert } = useAlert()
+  
   const handleSubmit = async () => {
     const inputs = [Email, Password];
     const isValidated = multyValidation(inputs);
-    const { showAlert } = useAlert()
+
 
     if (!isValidated) return;
 
