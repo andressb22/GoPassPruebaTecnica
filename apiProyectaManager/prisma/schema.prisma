@@ -1,0 +1,79 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Usu_usuario {
+  usu_id            Int                   @id @default(autoincrement())
+  usu_name          String
+  usu_email         String                @unique
+  usu_password      String
+  usu_created_at    DateTime              @default(now())
+  usu_updated_at    DateTime?
+  prmProjectMembers prm_project_members[]
+  proProjects       pro_projects[]
+}
+
+model pro_projects {
+  pro_id            Int                   @id @default(autoincrement())
+  pro_name          String
+  pro_description   String
+  pro_created_at    DateTime              @default(now())
+  pro_updated_at    DateTime?
+  usu_id_created    Int
+  usu               Usu_usuario           @relation(fields: [usu_id_created], references: [usu_id])
+  prmProjectMembers prm_project_members[]
+  tasTasks          tas_task[]
+}
+
+model rol_rol {
+  rol_id            Int                   @id @default(autoincrement())
+  rol_name          String
+  prmProjectMembers prm_project_members[]
+}
+
+model prm_project_members {
+  prm_id Int          @id @default(autoincrement())
+  usu_id Int
+  usu    Usu_usuario  @relation(fields: [usu_id], references: [usu_id])
+  pro_id Int
+  pro    pro_projects @relation(fields: [pro_id], references: [pro_id])
+  rol_id Int
+  rol    rol_rol      @relation(fields: [rol_id], references: [rol_id])
+  @@unique([pro_id, usu_id])
+}
+
+model stt_status_task {
+  stt_id   Int        @id @default(autoincrement())
+  stt_name String
+  tasTasks tas_task[]
+}
+
+model prt_priority_task {
+  prt_id   Int        @id @default(autoincrement())
+  prt_name String
+  tasTasks tas_task[]
+}
+
+model tas_task {
+  tas_id          Int               @id @default(autoincrement())
+  tas_title       String
+  tas_description String
+  stt_id          Int
+  stt             stt_status_task   @relation(fields: [stt_id], references: [stt_id])
+  prt_id          Int
+  prt             prt_priority_task @relation(fields: [prt_id], references: [prt_id])
+  pro_id          Int
+  pro             pro_projects      @relation(fields: [pro_id], references: [pro_id])
+  tas_created_at  DateTime          @default(now())
+  tas_updated_at  DateTime?
+}

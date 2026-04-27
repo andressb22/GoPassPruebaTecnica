@@ -1,0 +1,85 @@
+.addTaskButton {
+    outline: none;
+    border: 2px solid var(--firtColor);
+    background-color: transparent;
+    color: var(--firtColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.container {
+    padding: 28px 60px 60px 60px;
+    background-color: #F4F4F4;
+    min-height: 87vh;
+    width: 100%;
+    overflow-x: auto;
+}
+
+.contTitle {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    position: relative;
+}
+
+.contTitle>svg {
+    position: absolute;
+    left: -35px;
+    top: -2px;
+    color: var(--firtColor);
+    cursor: pointer;
+}
+
+.container h2 {
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.contSearch {
+    width: 40%;
+}
+
+.contTasks {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    margin-top: 55px;
+}
+
+.column {
+    background-color: #fff;
+    box-shadow: 0px .5px 2px rgba(16, 24, 40, 0.3);
+    min-height: 100%;
+    border-radius: 10px;
+    min-width: 250px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.columnTitle {
+    background-color: var(--firtColor);
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: left;
+    font-size: 14px !important;
+    font-weight: 700;
+    width: 100%;
+
+}
+
+.taskList {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

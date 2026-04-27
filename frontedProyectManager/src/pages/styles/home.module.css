@@ -1,0 +1,50 @@
+.btnAdd {
+  outline: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  border: 2px solid var(--firtColor);
+  color: var(--firtColor);
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contBtn {
+  width: 60%;
+  margin-bottom: 5px;
+}
+
+.container {
+  padding: 60px;
+  background-color: #F4F4F4;
+  min-height: 87vh;
+}
+
+.container h2 {
+  margin-bottom: 25px;
+}
+
+.contProjects {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 30px;
+  gap: 40px
+}
+
+.searcher {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
